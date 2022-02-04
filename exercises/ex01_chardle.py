@@ -23,11 +23,10 @@ if len(in_word) == 5:
 
         if count_yes < 1:
             print("No instances of " + in_char + " found in " + in_word)
+        elif count_yes > 1:
+            print(str(count_yes) + " instances of " + in_char + " found in " + in_word)
         else:
-            if count_yes > 1:
-                print(str(count_yes) + " instances of " + in_char + " found in " + in_word)
-            else:
-                print(str(count_yes) + " instance of " + in_char + " found in " + in_word)
+            print(str(count_yes) + " instance of " + in_char + " found in " + in_word)
     else:
         print("Error: Character must be a single character.")
 else:
