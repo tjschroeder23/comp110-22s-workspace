@@ -9,23 +9,22 @@ def main() -> None:
     # secret_word: str = input("Input a secret word:  ")
     turns: int = 1
     guess: str = ""
+    result: str = "X/6 - Sorry, try again tomorrow!"
     correct: bool = False
     while turns < 7 and correct is False:
         print(f"=== Turn {turns}/6 ===")
         guess = input_guess(len(secret_word))
-        emojified(secret_word, guess)
+        # emojified(secret_word, guess)
         print(emojified(secret_word, guess))
         if secret_word == guess:
-            print(f"You won in {turns}/6 turns!")
+            result = (f"You won in {turns}/6 turns!")
             correct = True
         turns += 1
-        if turns == 7 and correct is False:
-            print("X/6 - Sorry, try again tomorrow!")
-    return None
+    print(result)
 
 
 def input_guess(num_characters: int) -> str:
-    """User input og guesses looped to confirm correct # of caracters."""
+    """User input of guesses looped to confirm correct # of characters."""
     guess_input: str = input(f"Enter a {num_characters} character word?:  ")
     while len(guess_input) != num_characters:
         guess_input = input(f"That wasn't {num_characters} characters! Try again: ")
