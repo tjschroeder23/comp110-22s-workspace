@@ -97,3 +97,26 @@ def count(a: list[str]) -> dict[str, int]:
         else:
             result[item] = 1
     return result
+
+
+def choice_order(a: list[str], b: dict[str, int]) -> dict[str, int]:
+    result: dict[str, int] = dict()
+    for item in a:
+        result[item] = 0
+    for key in b:
+        result[key] = b[key]
+    return result
+
+
+def slice_count(a: list[str], b: list[str], c: list[str], d: list[str]) -> dict[str, dict[str, int]]:
+    result: dict[str, dict[str, int]] = dict()
+    tempdict: dict[str, list[str]] = dict()
+    for slice in a:
+        tempdict[slice] = []
+        i: int = 0
+        while i < len(c):
+            if c[i] == slice:
+                tempdict[slice].append(d[i])
+            i += 1
+        result[slice] = choice_order(b, count(tempdict[slice]))
+    return result
