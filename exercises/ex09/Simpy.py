@@ -1,8 +1,10 @@
 """Utility class (Simpy) for numerical operations.
 
-Utility class (StrArray) for string operations"""
+Utility class (StrArray) for string operations.
+"""
 
 from __future__ import annotations
+
 from typing import Union
 
 __author__ = "tjschroeder23"
@@ -21,10 +23,8 @@ class Simpy:
 
     def fill(self, fl: float, cnt: int) -> None:
         self.values = []
-        i: int = 0
-        while i < cnt:
+        for i in range(0, cnt):
             self.values.append(fl)
-            i += 1
 
     def arange(self, srt: float, stp: float, step: float = 1.0) -> None:
         assert step != 0.0
@@ -94,18 +94,15 @@ class Simpy:
         """docstring."""
         result_gi: Union[float, Simpy]
         if isinstance(rhs, int):
-            result_gi = self.values[rhs]
-            return result_gi
+            return self.values[rhs]
         else:
             result_list: list[float] = []
             assert len(self.values) == len(rhs)
-            i: int = 0
-            while i < len(self.values):
+            for i in range(0, len(self.values)):
                 if rhs[i]:
                     result_list.append(self.values[i])
-                i += 1
-            result_gi = Simpy(result_list)
-            return result_gi
+            return Simpy(result_list)
+
 
 class StrArray:
     items: list[str]
