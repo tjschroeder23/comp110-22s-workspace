@@ -36,5 +36,8 @@ if len(in_word) == 5:
                 print(str(count_yes) + " instance of " + in_char + " found in " + in_word)
     else:
         print("Error: Character must be a single character.")
+        exit()
 else:
     print("Error: Word must contain 5 characters")
+    exit()
+    
