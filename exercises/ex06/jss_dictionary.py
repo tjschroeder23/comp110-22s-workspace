@@ -53,11 +53,11 @@ def alphabetizer(given_list: list[str]) -> dict[str, list[str]]:
     return return_dict
 
 
-def update_attendance(attendance_report: dict[str, list[str]], week_day: str, student: str) -> dict[str, list[str]]:
+def update_attendance(attend_report: dict[str, list[str]], wkday: str, student: str) -> dict[str, list[str]]:
     """Mutating weekly attendance report."""
-    if week_day in attendance_report:
-        attendance_report[week_day].append(student)
+    if wkday in attend_report:
+        attend_report[wkday].append(student)
     else:
-        attendance_report[week_day] = []
-        attendance_report[week_day].append(student)
-    return attendance_report
+        attend_report[wkday] = []
+        attend_report[wkday].append(student)
+    return attend_report
